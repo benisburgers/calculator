@@ -35,7 +35,7 @@
 
         <div class="decimal button number"><button class="module-button" onclick="addValue('.')">.</button></div>
         <div class="zero button number"><button class="module-button" onclick="addValue(0)">0</button></div>
-        <div class="equal button number"><button class="module-button">=</button></div>
+        <div class="equal button number"><button class="module-button" onclick="equate()">=</button></div>
 
       </div>
     </div>
@@ -88,12 +88,26 @@
 
   let valueArray = []
 
-  function operator(x,y) {
-    valueArray.push(displayValue);
+function operator(x,y) {
+    valueArray.push(displayValueString);
     valueArray.push(x);
     document.getElementById("display").innerHTML = y;
     console.log(valueArray);
     displayValue = [];
+  }
+
+  function equate() {
+    displayValueString = displayValue.join("");
+    valueArray.push(displayValueString);
+    valueArray.join("");
+    console.log(valueArray);
+    let result = "";
+    for (let i = 0; i < valueArray.length; i++) {
+      result = result + valueArray[i];
+    }
+    console.log(result);
+    let realResult = eval(result);
+    console.log(realResult);
   }
 
   </script>
