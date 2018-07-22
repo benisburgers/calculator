@@ -10,31 +10,31 @@
     <div class="container">
       <div class="wrapper">
 
-        <div class="display">8008135800</div>
+        <div class="display" id="display">800813</div>
 
         <div class="cancel button special"><button class="module-button">CANC</button></div>
         <div class="del button special"><button class="module-button">DEL</button></div>
 
-        <div class="plus button operation"><button class="module-button">+</button></div>
-        <div class="minus button operation"><button class="module-button">-</button></div>
-        <div class="multiply button operation"><button class="module-button">×</button></div>
-        <div class="divide button operation"><button class="module-button">÷</button></div>
+        <div class="plus button operation"><button class="module-button" onclick="operator('+','+')">+</button></div>
+        <div class="minus button operation"><button class="module-button" onclick="operator('-','-')">-</button></div>
+        <div class="multiply button operation"><button class="module-button" onclick="operator('*','×')">×</button></div>
+        <div class="divide button operation"><button class="module-button" onclick="operator('/','÷')">÷</button></div>
 
 
-        <div class="seven button number"><button class="module-button">7</button></div>
-        <div class="eight button number"><button class="module-button">8</button></div>
-        <div class="nine button number"><button class="module-button">9</button></div>
+        <div class="seven button number"><button class="module-button" onclick="addValue(7)">7</button></div>
+        <div class="eight button number"><button class="module-button" onclick="addValue(8)">8</button></div>
+        <div class="nine button number"><button class="module-button" onclick="addValue(9)">9</button></div>
 
-        <div class="four button number"><button class="module-button">4</button></div>
-        <div class="five button number"><button class="module-button">5</button></div>
-        <div class="six button number"><button class="module-button">6</button></div>
+        <div class="four button number"><button class="module-button" onclick="addValue(4)">4</button></div>
+        <div class="five button number"><button class="module-button" onclick="addValue(5)">5</button></div>
+        <div class="six button number"><button class="module-button" onclick="addValue(6)">6</button></div>
 
-        <div class="one button number"><button class="module-button">1</button></div>
-        <div class="two button number"><button class="module-button">2</button></div>
-        <div class="three button number"><button class="module-button">3</button></div>
+        <div class="one button number"><button class="module-button" onclick="addValue(1)">1</button></div>
+        <div class="two button number"><button class="module-button" onclick="addValue(2)">2</button></div>
+        <div class="three button number"><button class="module-button" onclick="addValue(3)">3</button></div>
 
-        <div class="decimal button number"><button class="module-button">.</button></div>
-        <div class="zero button number"><button class="module-button">0</button></div>
+        <div class="decimal button number"><button class="module-button" onclick="addValue('.')">.</button></div>
+        <div class="zero button number"><button class="module-button" onclick="addValue(0)">0</button></div>
         <div class="equal button number"><button class="module-button">=</button></div>
 
       </div>
@@ -76,6 +76,26 @@
       return divide (x,y);
     }
   }
+
+  let displayValue = [];
+
+  function addValue(x) {
+    displayValue.push(x);
+    console.log(displayValue)
+    displayValueString = displayValue.join("");
+    document.getElementById("display").innerHTML = displayValueString;
+  }
+
+  let valueArray = []
+
+  function operator(x,y) {
+    valueArray.push(displayValue);
+    valueArray.push(x);
+    document.getElementById("display").innerHTML = y;
+    console.log(valueArray);
+    displayValue = [];
+  }
+
   </script>
 
 </html>
