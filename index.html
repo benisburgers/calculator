@@ -10,9 +10,9 @@
     <div class="container">
       <div class="wrapper">
 
-        <div class="display" id="display">800813</div>
+        <div class="display" id="display">8008135</div>
 
-        <div class="cancel button special"><button class="module-button">CANC</button></div>
+        <div class="cancel button special"><button class="module-button" onclick="cancel()">CANC</button></div>
         <div class="del button special"><button class="module-button">DEL</button></div>
 
         <div class="plus button operation"><button class="module-button" onclick="operator('+','+')">+</button></div>
@@ -88,7 +88,6 @@
   }
 
   let equationArray = []
-
   function operator(x,y) {
     equationArray.push(digitsString);
     equationArray.push(x);
@@ -100,19 +99,28 @@
   let evalResult;
   function equate() {
       equationArray.push(digitsString);
-      let result = "";
+      let equationString = "";
       for (let i = 0; i < equationArray.length; i++) {
-        result = result + equationArray[i];
+        equationString = equationString + equationArray[i];
       }
-      evalResult = eval(result)
-      document.getElementById("display").innerHTML = evalResult;
+      result = eval(equationString)
+      document.getElementById("display").innerHTML = result;
       console.log("digitsArray: " + digitsArray);
       console.log("digitsString: " + digitsString);
       console.log("equationArray: " + equationArray);
-      digitsString = evalResult;
+      console.log("result: " + result);
+      digitsString = result;
       equationArray = [];
       digitsArray = [];
-    
+  }
+
+  function cancel() {
+    digitsArray = [];
+    digitsString = '';
+    equationArray = [];
+    equationString = '';
+    result = '';
+    document.getElementById("display").innerHTML = "8008135";
   }
 
   </script>
