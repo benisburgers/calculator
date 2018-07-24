@@ -78,8 +78,7 @@
   } */
 
   let digitsArray = [];
-  console.log("digitsArray: " + digitsArray);
-
+  let digitsString = "";
   function addValue(x) {
     digitsArray.push(x);
     console.log("digitsArray: " + digitsArray);
@@ -96,18 +95,24 @@
     console.log("equationArray: " + equationArray);
     document.getElementById("display").innerHTML = y;
     digitsArray = [];
-    console.log("digitsArray: " + digitsArray);
   }
 
+  let evalResult;
   function equate() {
-    equationArray.push(digitsString);
-    digitsString = "";
-    let result = "";
-    for (let i = 0; i < equationArray.length; i++) {
-      result = result + equationArray[i];
-    }
-    evalResult = eval(result)
-    document.getElementById("display").innerHTML = evalResult;
+      equationArray.push(digitsString);
+      let result = "";
+      for (let i = 0; i < equationArray.length; i++) {
+        result = result + equationArray[i];
+      }
+      evalResult = eval(result)
+      document.getElementById("display").innerHTML = evalResult;
+      console.log("digitsArray: " + digitsArray);
+      console.log("digitsString: " + digitsString);
+      console.log("equationArray: " + equationArray);
+      digitsString = evalResult;
+      equationArray = [];
+      digitsArray = [];
+    
   }
 
   </script>
