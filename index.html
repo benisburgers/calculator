@@ -15,26 +15,26 @@
         <div class="cancel button special"><button class="module-button" onclick="cancel()">CANC</button></div>
         <div class="del button special"><button class="module-button" onclick="del()">DEL</button></div>
 
-        <div class="plus button operation"><button class="module-button" onclick="clickButton('+')">+</button></div>
-        <div class="minus button operation"><button class="module-button" onclick="clickButton('-')">-</button></div>
-        <div class="multiply button operation"><button class="module-button" onclick="clickButton('*')">×</button></div>
-        <div class="divide button operation"><button class="module-button" onclick="clickButton('/')">÷</button></div>
+        <div class="plus button operation"><button class="module-button" onclick="clickOperationButton('+','+')">+</button></div>
+        <div class="minus button operation"><button class="module-button" onclick="clickOperationButton('-','-')">-</button></div>
+        <div class="multiply button operation"><button class="module-button" onclick="clickOperationButton('*','×')">×</button></div>
+        <div class="divide button operation"><button class="module-button" onclick="clickOperationButton('/','÷')">÷</button></div>
 
 
-        <div class="seven button number"><button class="module-button" onclick="clickButton(7)">7</button></div>
-        <div class="eight button number"><button class="module-button" onclick="clickButton(8)">8</button></div>
-        <div class="nine button number"><button class="module-button" onclick="clickButton(9)">9</button></div>
+        <div class="seven button number"><button class="module-button" onclick="clickNumberButton(7)">7</button></div>
+        <div class="eight button number"><button class="module-button" onclick="clickNumberButton(8)">8</button></div>
+        <div class="nine button number"><button class="module-button" onclick="clickNumberButton(9)">9</button></div>
 
-        <div class="four button number"><button class="module-button" onclick="clickButton(4)">4</button></div>
-        <div class="five button number"><button class="module-button" onclick="clickButton(5)">5</button></div>
-        <div class="six button number"><button class="module-button" onclick="clickButton(6)">6</button></div>
+        <div class="four button number"><button class="module-button" onclick="clickNumberButton(4)">4</button></div>
+        <div class="five button number"><button class="module-button" onclick="clickNumberButton(5)">5</button></div>
+        <div class="six button number"><button class="module-button" onclick="clickNumberButton(6)">6</button></div>
 
-        <div class="one button number"><button class="module-button" onclick="clickButton(1)">1</button></div>
-        <div class="two button number"><button class="module-button" onclick="clickButton(2)">2</button></div>
-        <div class="three button number"><button class="module-button" onclick="clickButton(3)">3</button></div>
+        <div class="one button number"><button class="module-button" onclick="clickNumberButton(1)">1</button></div>
+        <div class="two button number"><button class="module-button" onclick="clickNumberButton(2)">2</button></div>
+        <div class="three button number"><button class="module-button" onclick="clickNumberButton(3)">3</button></div>
 
-        <div class="decimal button number"><button class="module-button" onclick="clickButton('.')">.</button></div>
-        <div class="zero button number"><button class="module-button" onclick="clickButton(0)">0</button></div>
+        <div class="decimal button number"><button class="module-button" onclick="clickNumberButton('.')">.</button></div>
+        <div class="zero button number"><button class="module-button" onclick="clickNumberButton(0)">0</button></div>
         <div class="equal button number"><button class="module-button" onclick="equate()">=</button></div>
 
       </div>
@@ -81,18 +81,49 @@
   let digitsString = "";
   let displayOutput = "";
   let pressedButtonsArray = [];
+  let result;
 
-  function clickButton(button) {
+  function clickNumberButton(button) {
+    result = '';
     pressedButtonsArray.push(button);
     pressedButtonsString = pressedButtonsArray.join("");
     document.getElementById("display").innerHTML = pressedButtonsString;
   }
 
+  function clickOperationButton(button, symbol) {
+    if (/[\+\-\*\/]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) {
+    alert("This ain't gonna work")
+    }
+    else {
+      pressedButtonsArray.push(result);
+      pressedButtonsArray.push(button);
+      result = '';
+      pressedButtonsString = pressedButtonsArray.join("");
+      document.getElementById("display").innerHTML = pressedButtonsString;
+    }
+  }
+
   function equate() {
-    let result = eval(pressedButtonsString);
+    if (/[\+\-\*\/]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) {
+      pressedButtonsArray.splice(-1,1);
+      pressedButtonsString = pressedButtonsArray.join("");
+    }
+    result = eval(pressedButtonsString);
     pressedButtonsArray = [];
-    pressedButtonsArray.push(result);
     document.getElementById("display").innerHTML = result;
+  }
+
+  function del() {
+    pressedButtonsArray.splice(-1,1)
+    pressedButtonsString = pressedButtonsArray.join("");
+    document.getElementById("display").innerHTML = pressedButtonsString;
+  }
+
+  function cancel() {
+    pressedButtonsArray = [];
+    pressedButtonsString = '';
+    result = '';
+    document.getElementById("display").innerHTML = "8008135";
   }
 
   /*function addValue(x) {
