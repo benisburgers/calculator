@@ -101,7 +101,7 @@
   }
 
   function clickOperationButton(button, symbol) {
-    if (pressedButtonsArray.length > 0 && (/[\+\-\*\/]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) == false || button == "-") {
+    if (pressedButtonsArray.length > 0 && (/[0123456789]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) || button == "-") {
       if (pressedButtonsArray[pressedButtonsArray.length-1] == "=") {
         pressedButtonsArray = [];
         pressedButtonsArray.push(result, button);
@@ -118,7 +118,7 @@
   }
 
   function equate() {
-    if (pressedButtonsArray.length > 0 && (/[1234567890]/.test(pressedButtonsArray[pressedButtonsArray.length-1]))) {
+    if (pressedButtonsArray.length > 0 && (/[0123456789]/.test(pressedButtonsArray[pressedButtonsArray.length-1]))) {
       pressedButtonsArray.push("=");
       result = eval(pressedButtonsString);
       document.getElementById("display").innerHTML = result;
