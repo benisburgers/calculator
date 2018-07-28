@@ -118,10 +118,12 @@
   }
 
   function equate() {
-    pressedButtonsArray.push("=");
-    result = eval(pressedButtonsString);
-    document.getElementById("display").innerHTML = result;
-    console.log(pressedButtonsArray);
+    if (pressedButtonsArray.length > 0 && (/[1234567890]/.test(pressedButtonsArray[pressedButtonsArray.length-1]))) {
+      pressedButtonsArray.push("=");
+      result = eval(pressedButtonsString);
+      document.getElementById("display").innerHTML = result;
+      console.log(pressedButtonsArray);
+    }
   }
 
   function del() {
