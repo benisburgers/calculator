@@ -127,16 +127,25 @@
   }
 
   function del() {
-    pressedButtonsArray.splice(-1,1)
-    pressedButtonsString = pressedButtonsArray.join("");
-    document.getElementById("display").innerHTML = pressedButtonsString;
+    if (pressedButtonsArray[pressedButtonsArray.length-1] == "=") {
+      pressedButtonsArray = [];
+      pressedButtonsString = "";
+      result = "";
+      document.getElementById("display").innerHTML = "";
+    }
+    else {
+      pressedButtonsArray.splice(-1,1)
+      pressedButtonsString = pressedButtonsArray.join("");
+      document.getElementById("display").innerHTML = pressedButtonsString;
+    }
+    console.log(pressedButtonsArray);
   }
 
   function cancel() {
     pressedButtonsArray = [];
-    pressedButtonsString = '';
-    result = '';
-    document.getElementById("display").innerHTML = "8008135";
+    pressedButtonsString = "";
+    result = "";
+    document.getElementById("display").innerHTML = "";
   }
 
   /*function addValue(x) {
