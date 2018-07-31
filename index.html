@@ -1,3 +1,7 @@
+<!--
+Comments/Reminders:
+- Fix more than one minus
+-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +14,12 @@
     <div class="container">
       <div class="wrapper">
 
-        <div class="display" id="display">8008135</div>
+        <div class="outerDiv">
+          <div class="innerDIV">
+            <p class="displayText">
+            </p>
+          </div>
+        </div>
 
         <div class="cancel button special"><button class="module-button" onclick="cancel()">CANC</button></div>
         <div class="del button special"><button class="module-button" onclick="del()">DEL</button></div>
@@ -54,13 +63,13 @@
       pressedButtonsArray = [];
       pressedButtonsArray.push(button);
       pressedButtonsString = pressedButtonsArray.join("");
-      document.getElementById("display").innerHTML = pressedButtonsString;
+      document.getElementById("displayText").innerHTML = pressedButtonsString;
     }
     //Equation hasn't happened//
     else {
       pressedButtonsArray.push(button);
       pressedButtonsString = pressedButtonsArray.join("");
-      document.getElementById("display").innerHTML = pressedButtonsString;
+      document.getElementById("displayText").innerHTML = pressedButtonsString;
       console.log(pressedButtonsArray);
     }
   }
@@ -71,12 +80,12 @@
         pressedButtonsArray = [];
         pressedButtonsArray.push(result, button);
         pressedButtonsString = pressedButtonsArray.join("");
-        document.getElementById("display").innerHTML = pressedButtonsString;
+        document.getElementById("displayText").innerHTML = pressedButtonsString;
       }
       else {
         pressedButtonsArray.push(button);
         pressedButtonsString = pressedButtonsArray.join("");
-        document.getElementById("display").innerHTML = pressedButtonsString;
+        document.getElementById("displayText").innerHTML = pressedButtonsString;
       }
     }
     console.log(pressedButtonsArray);
@@ -86,7 +95,7 @@
     if (pressedButtonsArray.length > 0 && (/[0123456789]/.test(pressedButtonsArray[pressedButtonsArray.length-1]))) {
       pressedButtonsArray.push("=");
       result = eval(pressedButtonsString);
-      document.getElementById("display").innerHTML = result;
+      document.getElementById("displayText").innerHTML = result;
       console.log(pressedButtonsArray);
     }
   }
@@ -96,12 +105,12 @@
       pressedButtonsArray = [];
       pressedButtonsString = "";
       result = "";
-      document.getElementById("display").innerHTML = "";
+      document.getElementById("displayText").innerHTML = "";
     }
     else {
       pressedButtonsArray.splice(-1,1)
       pressedButtonsString = pressedButtonsArray.join("");
-      document.getElementById("display").innerHTML = pressedButtonsString;
+      document.getElementById("displayText").innerHTML = pressedButtonsString;
     }
     console.log(pressedButtonsArray);
   }
@@ -110,7 +119,7 @@
     pressedButtonsArray = [];
     pressedButtonsString = "";
     result = "";
-    document.getElementById("display").innerHTML = "";
+    document.getElementById("displayText").innerHTML = "";
   }
 
   </script>
