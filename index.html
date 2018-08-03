@@ -57,7 +57,7 @@ Comments/Reminders:
   let pressedButtonsArray = [];
   let result;
 
-  function addtoev() {
+  function clickButton() {
   var bns = document.getElementsByTagName("button");
   for (i = 0; i < bns.length; i++) {
     bns[i].addEventListener("click", scaleFont);
@@ -65,7 +65,7 @@ Comments/Reminders:
   }
 
   window.addEventListener("load",function() {
-    addtoev();
+    clickButton();
   });
 
 
