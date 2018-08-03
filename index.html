@@ -57,6 +57,31 @@ Comments/Reminders:
   let pressedButtonsArray = [];
   let result;
 
+  function addtoev() {
+  var bns = document.getElementsByTagName("button");
+  for (i = 0; i < bns.length; i++) {
+    bns[i].addEventListener("click", scaleFont);
+    }
+  }
+
+  window.addEventListener("load",function() {
+    addtoev();
+  });
+
+
+  function scaleFont() {
+    if (pressedButtonsString.length <= 10) {
+      document.getElementById("displayText").style.fontSize = "80px";
+    }
+    if (pressedButtonsString.length > 10) {
+      document.getElementById("displayText").style.fontSize = "60px";
+    }
+    if (pressedButtonsString.length > 14) {
+      document.getElementById("displayText").style.fontSize = "50px";
+    }
+  }
+
+
   function clickNumberButton(button) {
     //Equation has happened//
     if (pressedButtonsArray[pressedButtonsArray.length-1] == "=") {
@@ -75,7 +100,7 @@ Comments/Reminders:
   }
 
   function clickOperationButton(button, symbol) {
-    if (pressedButtonsArray.length > 0 && (/[0123456789]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) || button == "-") {
+    if (pressedButtonsArray.length > 0 && (/[0123456789=]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) || button == "-") {
       if (pressedButtonsArray[pressedButtonsArray.length-1] == "=") {
         pressedButtonsArray = [];
         pressedButtonsArray.push(result, button);
@@ -95,7 +120,8 @@ Comments/Reminders:
     if (pressedButtonsArray.length > 0 && (/[0123456789]/.test(pressedButtonsArray[pressedButtonsArray.length-1]))) {
       pressedButtonsArray.push("=");
       result = eval(pressedButtonsString);
-      document.getElementById("displayText").innerHTML = result;
+      pressedButtonsString = result.toString();
+      document.getElementById("displayText").innerHTML = pressedButtonsString;
       console.log(pressedButtonsArray);
     }
   }
