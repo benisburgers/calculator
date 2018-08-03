@@ -55,6 +55,7 @@ Comments/Reminders:
   let digitsString = "";
   let displayOutput = "";
   let pressedButtonsArray = [];
+  let pressedButtonsString;
   let visibleText;
   let result;
 
@@ -79,6 +80,10 @@ Comments/Reminders:
     }
     if (pressedButtonsString.length > 14) {
       document.getElementById("displayText").style.fontSize = "50px";
+    }
+    if (pressedButtonsString.length > 17) {
+      visibleText = pressedButtonsString.slice(-17)
+      document.getElementById("displayText").innerHTML = visibleText;
     }
   }
 
