@@ -67,9 +67,28 @@ Comments/Reminders:
     }
   }
 
-  window.addEventListener("load",function() {
-    clickButton();
-  });
+  document.onkeypress = function(event) {
+    let buttonValue = event.which || event.keyCode;
+    let buttonCharacter = String.fromCharCode(buttonValue);
+    if (/[0123456789]/.test(buttonCharacter)) {
+      clickNumberButton(buttonCharacter)
+    }
+    if (buttonCharacter == "+") {
+      clickOperationButton('+','+');
+    }
+    if (buttonCharacter == "-") {
+      clickOperationButton('-','-');
+    }
+    if (buttonCharacter == "*") {
+      clickOperationButton('*','×')
+    }
+    if (buttonCharacter == "/") {
+      clickOperationButton('/','÷');
+    };
+    if (buttonCharacter == "=" || buttonValue == 13) {
+      equate();
+    }
+  };
 
 
   function scaleFont() {
@@ -196,6 +215,11 @@ Comments/Reminders:
     console.log("VT: " + visibleText);
   }
 
+  document.onkeydown = function(event) {
+     if (event.keyCode == 41) {
+      alert("hello")
+     }
+  }
   </script>
 
 </html>
