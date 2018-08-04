@@ -136,7 +136,7 @@ Comments/Reminders:
   }
 
   function clickOperationButton(button, symbol) {
-    if (pressedButtonsArray.length > 0 && (/[0123456789=]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) || button == "-") {
+    if (pressedButtonsArray.length > 0 && (/[0123456789=]/.test(pressedButtonsArray[pressedButtonsArray.length-1])) || (button == "-" && pressedButtonsArray[pressedButtonsArray.length-1] !== "-")) {
       if (pressedButtonsArray[pressedButtonsArray.length-1] == "=") {
         pressedButtonsArray = [];
         pressedButtonsArray.push(result, button);
