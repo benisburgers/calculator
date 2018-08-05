@@ -104,7 +104,7 @@ Comments/Reminders:
     displayTextWidth = document.getElementById("displayText").offsetWidth;
     numberOfCharacters = visibleText.length;
     pixelsPerCharacter = displayTextWidth/numberOfCharacters;
-    numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter) -1 ;
+    numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter) -1;
 
 /*    if (pressedButtonsString.length <= 10) {
       document.getElementById("displayText").style.fontSize = "80px";
@@ -135,7 +135,6 @@ Comments/Reminders:
       visibleArray = [];
       visibleArray.push(button);
       visibleText = visibleArray.join("");
-      document.getElementById("displayText").innerHTML = visibleText;
     }
     //Equation hasn't happened//
     else {
@@ -144,7 +143,6 @@ Comments/Reminders:
 
       visibleArray.push(button);
       visibleText = visibleArray.join("");
-      document.getElementById("displayText").innerHTML = visibleText;
     }
     scaleFont();
     console.log("PBA: " + pressedButtonsArray);
@@ -163,7 +161,6 @@ Comments/Reminders:
         visibleArray = [];
         visibleArray.push(result, symbol);
         visibleText = visibleArray.join("");
-        document.getElementById("displayText").innerHTML = visibleText;
       }
       else {
         pressedButtonsArray.push(button);
@@ -171,7 +168,6 @@ Comments/Reminders:
 
         visibleArray.push(symbol);
         visibleText = visibleArray.join("");
-        document.getElementById("displayText").innerHTML = visibleText;
       }
     }
     scaleFont();
@@ -189,7 +185,6 @@ Comments/Reminders:
 
       visibleArray.push("=");
       visibleText = result.toString();
-      document.getElementById("displayText").innerHTML = visibleText;
     }
     scaleFont();
     console.log("PBA: " + pressedButtonsArray);
@@ -206,7 +201,6 @@ Comments/Reminders:
       visibleArray = [];
       visibleText = "";
       result = "";
-      document.getElementById("displayText").innerHTML = "";
     }
     else {
       pressedButtonsArray.splice(-1,1);
@@ -214,7 +208,6 @@ Comments/Reminders:
 
       visibleArray.splice(-1,1)
       visibleText = visibleArray.join("");
-      document.getElementById("displayText").innerHTML = visibleText;
     }
     scaleFont();
     console.log("PBA: " + pressedButtonsArray);
