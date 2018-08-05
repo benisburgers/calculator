@@ -21,7 +21,7 @@ Comments/Reminders:
           </div>
         </div>
 
-        <div class="cancel button special"><button class="module-button" onclick="cancel()">CANC</button></div>
+        <div class="cancel button special"><button class="module-button" onclick="cancel()">CANCEL</button></div>
         <div class="del button special"><button class="module-button" onclick="del()">DEL</button></div>
 
         <div class="plus button operation"><button class="module-button" onclick="clickOperationButton('+','+')">+</button></div>
@@ -55,19 +55,12 @@ Comments/Reminders:
   let digitsString = "";
   let displayOutput = "";
   let pressedButtonsArray = [];
-  let pressedButtonsString;
+  let pressedButtonsString = "";
   let visibleArray = [];
-  let visibleText;
-  let result;
+  let visibleText = "";
+  let result = "";
 
-  function clickButton() {
-  var bns = document.getElementsByTagName("button");
-  for (i = 0; i < bns.length; i++) {
-    bns[i].addEventListener("click", scaleFont);
-    }
-  }
-
-  document.onkeypress = function(event) {
+    document.onkeypress = function(event) {
     let buttonValue = event.which || event.keyCode;
     let buttonCharacter = String.fromCharCode(buttonValue);
     if (/[0123456789]/.test(buttonCharacter)) {
@@ -85,7 +78,7 @@ Comments/Reminders:
     if (buttonCharacter == "/") {
       clickOperationButton('/','÷');
     };
-    if (buttonCharacter == "=" || buttonValue == 13) {
+    if (buttonCharacter == "=") {
       equate();
     }
   };
@@ -129,6 +122,7 @@ Comments/Reminders:
       visibleText = visibleArray.join("");
       document.getElementById("displayText").innerHTML = visibleText;
     }
+    scaleFont();
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
     console.log("PBS: " + pressedButtonsString);
@@ -156,6 +150,7 @@ Comments/Reminders:
         document.getElementById("displayText").innerHTML = visibleText;
       }
     }
+    scaleFont();
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
     console.log("PBS: " + pressedButtonsString);
@@ -172,6 +167,7 @@ Comments/Reminders:
       visibleText = result.toString();
       document.getElementById("displayText").innerHTML = visibleText;
     }
+    scaleFont();
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
     console.log("PBS: " + pressedButtonsString);
@@ -196,6 +192,7 @@ Comments/Reminders:
       visibleText = visibleArray.join("");
       document.getElementById("displayText").innerHTML = visibleText;
     }
+    scaleFont();
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
     console.log("PBS: " + pressedButtonsString);
@@ -215,11 +212,6 @@ Comments/Reminders:
     console.log("VT: " + visibleText);
   }
 
-  document.onkeydown = function(event) {
-     if (event.keyCode == 41) {
-      alert("hello")
-     }
-  }
   </script>
 
 </html>
