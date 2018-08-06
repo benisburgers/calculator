@@ -10,6 +10,7 @@
   .container {
     height: auto;
     margin: auto;
+    width: 100%;
   }
 
   .outerDiv {
@@ -197,4 +198,10 @@
 
   .module-button:active {
     filter:brightness(1);
+  }
+
+  @media only screen and (min-width: 768px) {
+    .container {
+      width: 40%;
+    }
   }
