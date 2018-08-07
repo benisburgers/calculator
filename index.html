@@ -106,20 +106,6 @@ Comments/Reminders:
     pixelsPerCharacter = displayTextWidth/numberOfCharacters;
     numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter) -1 ;
 
-/*    if (pressedButtonsString.length <= 10) {
-      document.getElementById("displayText").style.fontSize = "80px";
-    }
-    if (pressedButtonsString.length > 10) {
-      document.getElementById("displayText").style.fontSize = "60px";
-    }
-    if (pressedButtonsString.length > 14) {
-      document.getElementById("displayText").style.fontSize = "50px";
-    }
-    if (pressedButtonsString.length > 17) {
-      displayText = visibleText.slice(-17)
-      document.getElementById("displayText").innerHTML = displayText;
-    } */
-
     displayText = visibleText.slice(-numberOfVisibleCharacters)
     document.getElementById("displayText").innerHTML = displayText;
   }
