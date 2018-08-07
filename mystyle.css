@@ -1,16 +1,15 @@
 
-
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 100px;
-    font-family: sans-serif;
-  }
-
   .container {
     width: 100%;
     height: 100%;
     margin: auto;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 16vh;
+    font-family: sans-serif;
   }
 
   .outerDiv {
