@@ -8,6 +8,7 @@
   }
 
   .container {
+    width: 40%;
     height: auto;
     margin: auto;
     width: 100%;
@@ -23,6 +24,7 @@
     text-align:right;
     white-space: nowrap;
     overflow: hidden;
+    border-left:10px solid transparent;
   }
 
   .innerDiv {
