@@ -113,7 +113,7 @@ Comments/Reminders:
     console.log("numberOfCharacters: " + numberOfCharacters);
     pixelsPerCharacter = displayTextWidth/numberOfCharacters;
     console.log("pixelsPerCharacter: " + pixelsPerCharacter);
-    numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter) -1;
+    numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter) ;
     console.log("numberOfVisibleCharacters: " + numberOfVisibleCharacters);
     displayText = visibleText.slice(-numberOfVisibleCharacters)
     document.getElementById("displayText").innerHTML = displayText;
