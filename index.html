@@ -185,9 +185,14 @@ Comments/Reminders:
 
       visibleArray.push("=");
       visibleText = result.toString();
-      document.getElementById("displayText").innerHTML = visibleText;
+      if (visibleText.length > numberOfVisibleCharacters) {
+        displayText = visibleText.slice(-numberOfVisibleCharacters)
+      }
+      else {
+        displayText = visibleText;
+      }
+      document.getElementById("displayText").innerHTML = displayText;
     }
-    scaleFont();
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
     console.log("PBS: " + pressedButtonsString);
