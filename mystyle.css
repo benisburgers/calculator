@@ -9,7 +9,7 @@
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-auto-rows: 16vh;
-      font-family: sans-serif;
+      font-family: monospace;
     }
 
     .outerDiv {
