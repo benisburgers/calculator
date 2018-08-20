@@ -104,7 +104,7 @@ Comments/Reminders:
     displayTextWidth = document.getElementById("displayText").offsetWidth;
     numberOfCharacters = visibleText.length;
     pixelsPerCharacter = displayTextWidth/numberOfCharacters;
-    numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter) -1 ;
+    numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter);
 
     displayText = visibleText.slice(-numberOfVisibleCharacters)
     document.getElementById("displayText").innerHTML = displayText;
