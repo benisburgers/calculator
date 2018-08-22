@@ -19,11 +19,11 @@
     grid-column-end: 13;
     grid-row-start: 1;
     grid-row-end: 2;
-    background-color: #DABE4A;
     text-align:right;
     white-space: nowrap;
     overflow: hidden;
     border-left:10px solid transparent;
+    background-color: #FE4A49;
   }
 
   .innerDiv {
@@ -32,6 +32,7 @@
 
   .displayText {
     font-size: 10vh;
+    color: #F4F4F8;
     }
 
   .cancel {
@@ -172,15 +173,15 @@
   }
 
   .special {
-    background-color: #C6CE71;
+    background-color: #FED766;
   }
 
   .operation {
-    background-color: #8CD4B9;
+    background-color: #E6E6EA;
   }
 
   .number {
-    background-color: #153058;
+    background-color: #009FB7;
   }
 
   .module-button {
