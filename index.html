@@ -123,6 +123,7 @@ Comments/Reminders:
       visibleArray.push(button);
       visibleText = visibleArray.join("");
       document.getElementById("displayText").innerHTML = visibleText;
+      limitDisplayDigits();
     }
     //Equation hasn't happened//
     else {
@@ -132,8 +133,8 @@ Comments/Reminders:
       visibleArray.push(button);
       visibleText = visibleArray.join("");
       document.getElementById("displayText").innerHTML = visibleText;
+      limitDisplayDigits();
     }
-    limitDisplayDigits();
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
     console.log("PBS: " + pressedButtonsString);
