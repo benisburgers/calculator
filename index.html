@@ -151,6 +151,7 @@ Comments/Reminders:
         visibleArray.push(result, symbol);
         visibleText = visibleArray.join("");
         document.getElementById("displayText").innerHTML = visibleText;
+        limitDisplayDigits();
       }
       else {
         pressedButtonsArray.push(button);
@@ -159,8 +160,8 @@ Comments/Reminders:
         visibleArray.push(symbol);
         visibleText = visibleArray.join("");
         document.getElementById("displayText").innerHTML = visibleText;
+        limitDisplayDigits();
       }
-      limitDisplayDigits();
     }
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
@@ -194,6 +195,7 @@ Comments/Reminders:
       visibleText = "";
       result = "";
       document.getElementById("displayText").innerHTML = "";
+      limitDisplayDigits();
     }
     else {
       pressedButtonsArray.splice(-1,1);
@@ -202,8 +204,8 @@ Comments/Reminders:
       visibleArray.splice(-1,1)
       visibleText = visibleArray.join("");
       document.getElementById("displayText").innerHTML = visibleText;
+      limitDisplayDigits();
     }
-    limitDisplayDigits();
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
     console.log("PBS: " + pressedButtonsString);
