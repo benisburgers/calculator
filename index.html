@@ -99,7 +99,7 @@ Comments/Reminders:
   };
 
 
-  function limitDisplayDigits() {
+  function limitDisplayDigits(type) {
     outerDivWidth = document.getElementById("outerDiv").offsetWidth - 20;
 
     // Put in here, so that it's executed everytime a button is pressed //
@@ -108,8 +108,22 @@ Comments/Reminders:
     pixelsPerCharacter = displayTextWidth/numberOfCharacters;
     numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter);
 
-    displayText = visibleText.slice(-numberOfVisibleCharacters)
-    document.getElementById("displayText").innerHTML = displayText;
+    if (type == "equation") {
+      console.log("numberOfCharacters " + numberOfCharacters)
+      console.log("numberOfVisibleCharacters " + numberOfVisibleCharacters)
+      if (numberOfCharacters > numberOfVisibleCharacters) {
+        displayText = visibleText.slice(0,numberOfVisibleCharacters-3) + "..."
+        document.getElementById("displayText").innerHTML = displayText;
+      }
+      else {
+        displayText = visibleText.slice(0,numberOfVisibleCharacters)
+        document.getElementById("displayText").innerHTML = displayText;
+      }
+    }
+    else {
+      displayText = visibleText.slice(-numberOfVisibleCharacters)
+      document.getElementById("displayText").innerHTML = displayText;
+    }
   }
 
 
@@ -180,7 +194,7 @@ Comments/Reminders:
       visibleArray.push("=");
       visibleText = result.toString();
       document.getElementById("displayText").innerHTML = visibleText;
-      limitDisplayDigits();
+      limitDisplayDigits("equation");
     }
     console.log("PBA: " + pressedButtonsArray);
     console.log("VA: " + visibleArray);
