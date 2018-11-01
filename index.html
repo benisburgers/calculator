@@ -107,13 +107,23 @@ Comments/Reminders:
     numberOfCharacters = visibleText.length;
     pixelsPerCharacter = displayTextWidth/numberOfCharacters;
     numberOfVisibleCharacters = Math.floor(outerDivWidth / pixelsPerCharacter);
+    whereIsE = visibleText.indexOf("e")
 
     if (type == "equation") {
       console.log("numberOfCharacters " + numberOfCharacters)
       console.log("numberOfVisibleCharacters " + numberOfVisibleCharacters)
       if (numberOfCharacters > numberOfVisibleCharacters) {
-        displayText = visibleText.slice(0,numberOfVisibleCharacters-3) + "..."
-        document.getElementById("displayText").innerHTML = displayText;
+        if (whereIsE == "-1") {
+          displayText = visibleText.slice(0,numberOfVisibleCharacters-3) + "..."
+          document.getElementById("displayText").innerHTML = displayText;
+          console.log("Theres no e")
+        }
+        else {
+          howLongIsE = numberOfCharacters - whereIsE
+          displayText = visibleText.slice(0,numberOfVisibleCharacters-howLongIsE) + visibleText.slice(-howLongIsE)
+          document.getElementById("displayText").innerHTML = displayText;
+          console.log("Theres an e")
+        }
       }
       else {
         displayText = visibleText.slice(0,numberOfVisibleCharacters)
