@@ -21,6 +21,7 @@
 
   window.onresize = function() {
     outerDivWidth = document.getElementById("outerDiv").offsetWidth - 20;
+    limitDisplayDigits();
   };
 
 //Convert pressed keyboard button to character, and run respective function (see bellow)//
